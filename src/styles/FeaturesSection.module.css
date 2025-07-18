@@ -1,0 +1,132 @@
+/* FeaturesSection.module.css */
+
+.section {
+    padding: 5rem 0;
+    background-color: white;
+}
+
+.container {
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 4rem;
+    color: var(--text-gray);
+}
+
+.sectionTitle {
+    font-size: 2.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.sectionDescription {
+    max-width: 36.5rem;
+    margin: 0 auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Feature Card Styles */
+.featureCard {
+    width: 100%;
+    height: 26.25rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+@media (min-width: 1280px) {
+    .featureCard {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+}
+
+.bgImage {
+    display: none;
+    position: absolute;
+    right: -3rem;
+    margin: 3rem;
+}
+
+@media (min-width: 1280px) {
+    .bgImage {
+        display: flex;
+    }
+}
+
+.bgImg {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.featureImage {
+    max-width: 7.5rem;
+}
+
+@media (min-width: 1280px) {
+    .featureImage {
+        margin-right: 1.75rem;
+        max-width: 14.5rem;
+    }
+}
+
+.content {
+    max-width: 13.75rem;
+    z-index: 10;
+    text-align: left;
+    color: var(--text-gray);
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--text-gray);
+}
+
+.description {
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.learnMore {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.learnMore:hover .arrow {
+    transform: translateX(0.25rem);
+}
+
+.link {
+    font-weight: bold;
+    text-decoration: none;
+    color: inherit;
+}
+
+.arrow {
+    width: 1rem;
+    height: 1rem;
+    color: var(--primary);
+    transition: transform 0.2s ease;
+}

@@ -1,0 +1,619 @@
+/* Main Container */
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f3f4f6;
+}
+
+.layout {
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 16rem;
+    min-height: 100vh;
+    padding: 1rem;
+    background-color: #e5e7eb;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Show sidebar on larger screens */
+@media (min-width: 768px) {
+    .sidebar {
+        transform: translateX(0);
+    }
+}
+
+.logoContainer {
+    margin-bottom: 2rem;
+}
+
+.logo {
+    width: 2.5rem;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.navItemActive {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background-color: var(--primary-color, #8b5cf6);
+    color: white;
+    border-radius: 0.5rem;
+    text-decoration: none;
+}
+
+.navItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    color: #374151;
+    border: none;
+    background: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+}
+
+.navItem:hover {
+    background-color: #d1d5db;
+}
+
+/* Main Content */
+.mainContent {
+    padding-left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: white;
+    position: relative;
+}
+
+/* Add left padding for sidebar on larger screens */
+@media (min-width: 768px) {
+    .mainContent {
+        padding-left: 16rem;
+    }
+}
+
+.contentWrapper {
+    /* Empty wrapper for potential future styling */
+}
+
+/* Header */
+.header {
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+@media (min-width: 768px) {
+    .header {
+        padding: 1.5rem;
+    }
+}
+
+.headerContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .headerContainer {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.addButton {
+    background-color: var(--primary-color, #8b5cf6);
+    width: 100%;
+    max-width: 10.5rem;
+    text-align: center;
+    color: white;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.addButton:hover {
+    background-color: #7c3aed;
+}
+
+.searchContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+@media (min-width: 640px) {
+    .searchContainer {
+        flex-direction: row;
+        width: auto;
+    }
+}
+
+.searchInputs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+@media (min-width: 640px) {
+    .searchInputs {
+        flex-direction: row;
+    }
+}
+
+.inputWrapper {
+    position: relative;
+    width: 100%;
+}
+
+@media (min-width: 640px) {
+    .inputWrapper {
+        width: auto;
+    }
+}
+
+.inputIcon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+}
+
+.searchInput {
+    padding-left: 2.5rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    outline: none;
+    width: 100%;
+    min-width: 0;
+}
+
+@media (min-width: 640px) {
+    .searchInput {
+        width: 12rem;
+    }
+}
+
+.searchInput:focus {
+    ring: 2px;
+    ring-color: transparent;
+}
+
+/* Loading */
+.loadingContainer {
+    padding: 1rem;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .loadingContainer {
+        padding: 1.5rem;
+    }
+}
+
+.loadingText {
+    color: #6b7280;
+}
+
+/* Table */
+.tableContainer {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table {
+    width: 100%;
+    min-width: 700px; /* Minimum width for table */
+}
+
+.tableHeader {
+    background-color: #e5e7eb;
+}
+
+.tableHeaderCell {
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+@media (min-width: 768px) {
+    .tableHeaderCell {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.75rem;
+    }
+}
+
+.tableBody {
+    background-color: #d1d5db;
+    border-top: 1px solid #e5e7eb;
+}
+
+.tableRow {
+    border-top: 1px solid #e5e7eb;
+}
+
+.tableRow:hover {
+    background-color: #f9fafb;
+}
+
+.tableCell {
+    padding: 0.75rem 0.75rem;
+    white-space: nowrap;
+    font-size: 0.8rem;
+    color: #111827;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (min-width: 768px) {
+    .tableCell {
+        padding: 1rem 1.5rem;
+        font-size: 0.875rem;
+        max-width: none;
+    }
+}
+
+.noPostsCell {
+    padding: 1rem 0.75rem;
+    text-align: center;
+    color: #6b7280;
+}
+
+@media (min-width: 768px) {
+    .noPostsCell {
+        padding: 1rem 1.5rem;
+    }
+}
+
+.actionsContainer {
+    display: flex;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .actionsContainer {
+        gap: 1.5rem;
+    }
+}
+
+.editButton {
+    color: #2563eb;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0.25rem;
+}
+
+.editButton:hover {
+    color: #1d4ed8;
+}
+
+.deleteButton {
+    color: #dc2626;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0.25rem;
+}
+
+.deleteButton:hover {
+    color: #b91c1c;
+}
+
+/* Pagination */
+.paginationContainer {
+    padding: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+@media (min-width: 768px) {
+    .paginationContainer {
+        padding: 1.5rem;
+    }
+}
+
+.paginationWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .paginationWrapper {
+        flex-direction: row;
+    }
+}
+
+.paginationInfo {
+    font-size: 0.8rem;
+    color: #374151;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .paginationInfo {
+        font-size: 0.875rem;
+    }
+}
+
+.paginationControls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.paginationButton {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+    background-color: #e5e7eb;
+    color: #374151;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+@media (min-width: 768px) {
+    .paginationButton {
+        padding: 0.25rem 0.75rem;
+        font-size: 0.875rem;
+    }
+}
+
+.paginationButton:hover:not(:disabled) {
+    background-color: #d1d5db;
+}
+
+.paginationButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pageNumbers {
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pageButton {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+    background-color: #e5e7eb;
+    color: #374151;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    min-width: 2rem;
+}
+
+@media (min-width: 768px) {
+    .pageButton {
+        padding: 0.25rem 0.75rem;
+        font-size: 0.875rem;
+    }
+}
+
+.pageButton:hover {
+    background-color: #d1d5db;
+}
+
+.pageButtonActive {
+    background-color: #8b5cf6;
+    color: white;
+}
+
+.pageButtonActive:hover {
+    background-color: #7c3aed;
+}
+
+/* Modal */
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 50;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border-radius: 2rem;
+}
+
+.modalContent {
+    background-color: white;
+    border-radius: 0.5rem;
+    max-width: 90vw;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+@media (min-width: 640px) {
+    .modalContent {
+        max-width: 28rem;
+        padding: 1.5rem;
+    }
+}
+
+.modalTitle {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 640px) {
+    .modalTitle {
+        font-size: 1.25rem;
+    }
+}
+
+.modalForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.formLabel {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 0.25rem;
+}
+
+.formInput {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    outline: none;
+    font-size: 1rem;
+}
+
+@media (min-width: 640px) {
+    .formInput {
+        padding: 0.5rem 0.75rem;
+    }
+}
+
+.formInput:focus {
+    ring: 2px;
+    ring-color: transparent;
+}
+
+.formTextarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    outline: none;
+    resize: vertical;
+    font-size: 1rem;
+}
+
+@media (min-width: 640px) {
+    .formTextarea {
+        padding: 0.5rem 0.75rem;
+    }
+}
+
+.formTextarea:focus {
+    ring: 2px;
+    ring-color: transparent;
+}
+
+.modalActions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+@media (min-width: 640px) {
+    .modalActions {
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: flex-end;
+    }
+}
+
+.cancelButton {
+    padding: 0.75rem 1rem;
+    color: #374151;
+    background-color: #e5e7eb;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 1rem;
+}
+
+@media (min-width: 640px) {
+    .cancelButton {
+        padding: 0.5rem 1rem;
+    }
+}
+
+.cancelButton:hover {
+    background-color: #d1d5db;
+}
+
+.submitButton {
+    padding: 0.75rem 1rem;
+    background-color: var(--primary-color, #8b5cf6);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 1rem;
+}
+
+@media (min-width: 640px) {
+    .submitButton {
+        padding: 0.5rem 1rem;
+    }
+}
+
+.submitButton:hover {
+    background-color: #7c3aed;
+}
+
+/* Mobile menu toggle (if needed) */
+@media (max-width: 767px) {
+    .container {
+        position: relative;
+    }
+
+    .sidebar {
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .mainContent {
+        padding: 0;
+    }
+}

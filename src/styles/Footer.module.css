@@ -1,213 +1,183 @@
 /* Footer.module.css */
+
 .footer {
-    background-color: #f8f9ff;
-    padding: 60px 80px 40px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #6b7280;
+    background-color: white;
+    padding: 5rem 0;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 80px;
+    padding-top: 2rem;
 }
 
-/* Common styles for easier maintenance */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.companyInfo {
+    margin: 0 auto;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .companyInfo {
+        text-align: left;
+    }
+}
+
 .logoSection {
-    flex: 1;
-    max-width: 280px;
-}
-
-.logoHeader {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 24px;
+    margin-bottom: 1.5rem;
 }
 
-.logoTitle {
-    font-size: 20px;
+.logoContainer {
+    width: 100%;
+    max-width: 50px;
+}
+
+.logo {
+    width: 2.25rem;
+    object-fit: cover;
+}
+
+.companyName {
     font-weight: 600;
-    color: #1f2937;
-    margin: 0;
+    color: var(--text-color, #1f2937);
 }
 
-.infoSection {
-    margin-bottom: 16px;
+.address {
+    font-style: normal;
+    color: #4b5563;
+    line-height: 1.625;
 }
 
-.navSection {
-    flex: 0 0 auto;
-    min-width: 120px;
-}
-
-.navTitle {
-    font-size: 16px;
+.addressBold {
     font-weight: 600;
-    color: #1f2937;
-    margin: 0 0 20px 0;
 }
 
-.navList {
-    padding: 0;
-    margin: 0;
-    list-style: none;
+.aboutSection {
+    text-align: left;
+    padding-left: 4rem;
 }
 
-.navItem {
-    font-size: 14px;
-    color: #6b7280;
-    margin-bottom: 12px;
-    cursor: pointer;
-    transition: color 0.2s ease;
+@media (min-width: 1024px) {
+    .aboutSection {
+        text-align: left;
+    }
 }
 
-.navItem:hover {
-    color: #9333ea;
+.helpSection {
+    text-align: left;
+}
+
+@media (min-width: 1024px) {
+    .helpSection {
+        text-align: left;
+    }
 }
 
 .socialSection {
-    flex: 0 0 auto;
-    min-width: 160px;
+    text-align: left;
 }
 
-.socialTitle {
-    font-size: 16px;
+@media (min-width: 1024px) {
+    .socialSection {
+        text-align: left;
+    }
+}
+
+.sectionTitle {
     font-weight: 600;
-    color: #1f2937;
-    margin: 0 0 20px 0;
+    color: #111827;
+    margin-bottom: 1rem;
+}
+
+.linkList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    color: #4b5563;
+}
+
+.link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.link:hover {
+    color: #7c3aed;
 }
 
 .socialIcons {
     display: flex;
-    gap: 12px;
+    gap: 1rem;
 }
 
 .socialIcon {
-    width: 44px;
-    height: 44px;
-    border-radius: 8px;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: #f3f4f6;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    font-size: 22px;
+    transition: background-color 0.2s;
 }
 
 .socialIcon:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: var(--primary-color, #8b5cf6);
 }
 
-.youtubeIcon {
-    background-color: #ff0000;
-    color: white;
+.iconWrapper {
+    color: #4b5563;
 }
 
-.githubIcon {
-    background-color: #333333;
-    color: white;
-}
-
-.instagramIcon {
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    color: white;
-}
-
-/* Footer Bottom Section */
-.footerBottom {
-    margin-top: 50px;
-    padding-top: 24px;
+.bottomSection {
     border-top: 1px solid #e5e7eb;
+    margin-top: 3rem;
+    padding-top: 2rem;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
 }
 
+@media (min-width: 768px) {
+    .bottomSection {
+        flex-direction: row;
+    }
+}
+
 .copyright {
-    font-size: 12px;
-    color: #9ca3af;
-    line-height: 1.4;
+    color: #4b5563;
+    font-size: 0.875rem;
 }
 
-.chatButton {
-    background-color: #9333ea;
-    color: white;
-    border: none;
-    border-radius: 50px;
-    padding: 12px 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-    font-size: 20px;
-    width: 48px;
-    height: 48px;
+.messIcon {
+    margin-top: 1rem;
 }
 
-.chatButton:hover {
-    background-color: #7c3aed;
-    transform: scale(1.05);
-}
-
-
-.logo {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-}
-
-.infoList {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-.infoItem {
-    font-size: 14px;
-    line-height: 1.6;
-    color: #6b7280;
-    margin-bottom: 4px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .footer {
-        padding: 40px 20px 30px;
-    }
-
-    .container {
-        flex-direction: column;
-        gap: 40px;
-    }
-
-    .logoSection {
-        max-width: 100%;
-    }
-
-    .navSection,
-    .socialSection {
-        min-width: auto;
-    }
-
-    .footerBottom {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
+@media (min-width: 768px) {
+    .messIcon {
+        margin-top: 0;
     }
 }
 
-@media (max-width: 1024px) {
-    .footer {
-        padding: 50px 40px 35px;
-    }
-
-    .container {
-        gap: 60px;
-    }
+.messImage {
+    width: 2.5rem;
 }

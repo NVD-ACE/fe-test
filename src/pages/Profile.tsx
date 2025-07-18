@@ -4,6 +4,7 @@ import {createPost, deletePost, getPosts, updatePost} from "../api/post.ts";
 import Logo from "../assets/Logo.png";
 import { useNavigate } from "react-router-dom";
 import type {Post, PostsRequest} from "../types";
+import styles from "../styles/PostsManagement.module.css";
 
 const PostsManagement = () => {
     const [posts, setPosts] = useState<Post[]>([]);
@@ -37,13 +38,11 @@ const PostsManagement = () => {
         return tagsArray.join(", ");
     };
 
-
     // Fetch posts on component mount
     useEffect(() => {
         const fetchPosts = async () => {
             setLoading(true);
             try {
-
                 const data: any = await getPosts(currentPage.toString(), searchTitle, searchTags);
                 // Handle both array and object with posts property
                 const postsArray = Array.isArray(data) ? data : data.posts || [];
@@ -91,8 +90,6 @@ const PostsManagement = () => {
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
     const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
-
-
 
     // CRUD Operations
     const handleAddPost = async (postData: any) => {
@@ -169,7 +166,6 @@ const PostsManagement = () => {
         } finally {
             setLoading(false);
         }
-
     };
 
     const handleLogout = () => {
@@ -182,24 +178,24 @@ const PostsManagement = () => {
     const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
 
     return (
-        <div className="w-full min-h-screen bg-gray-100">
-            <div className="flex">
+        <div className={styles.container}>
+            <div className={styles.layout}>
                 {/* Sidebar */}
-                <div className="w-64 min-h-screen p-4 bg-gray-200 fixed top-0 left-0 z-10 ">
-                    <div className="mb-8">
-                        <img src={Logo} alt="Logo" className="w-10" />
+                <div className={styles.sidebar}>
+                    <div className={styles.logoContainer}>
+                        <img src={Logo} alt="Logo" className={styles.logo} />
                     </div>
 
-                    <nav className="space-y-2">
+                    <nav className={styles.nav}>
                         <a
                             href="/profile"
-                            className="flex items-center gap-2 p-3 bg-primary text-white rounded-lg"
+                            className={styles.navItemActive}
                         >
                             Posts
                         </a>
                         <button
                             onClick={handleLogout}
-                            className="flex items-center gap-2 p-3 text-gray-700 hover:bg-gray-300 rounded-lg w-full text-left"
+                            className={styles.navItem}
                         >
                             <LogOut size={16} />
                             Logout
@@ -208,23 +204,23 @@ const PostsManagement = () => {
                 </div>
 
                 {/* Main Content */}
-                <div className="pl-26 w-full min-h-screen bg-white relative">
-                    <div className="">
+                <div className={styles.mainContent}>
+                    <div className={styles.contentWrapper}>
                         {/* Header */}
-                        <div className="p-6 border-b border-gray-200">
-                            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                        <div className={styles.header}>
+                            <div className={styles.headerContainer}>
                                 <button
                                     onClick={() => setShowAddModal(true)}
-                                    className="bg-primary w-42 text-center text-white px-4 py-2 rounded-4xl hover:bg-purple-600 transition-colors gap-2"
+                                    className={styles.addButton}
                                 >
                                     Add new
                                 </button>
                                 {/* Search and Add Button */}
-                                <div className="flex flex-col sm:flex-row gap-4">
-                                    <div className="flex flex-col sm:flex-row gap-2">
-                                        <div className="relative">
+                                <div className={styles.searchContainer}>
+                                    <div className={styles.searchInputs}>
+                                        <div className={styles.inputWrapper}>
                                             <Search
-                                                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                                                className={styles.inputIcon}
                                                 size={16}
                                             />
                                             <input
@@ -232,13 +228,13 @@ const PostsManagement = () => {
                                                 placeholder="Title"
                                                 value={searchTitle}
                                                 onChange={(e) => setSearchTitle(e.target.value)}
-                                                className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:outline-none focus:ring-transparent "
+                                                className={styles.searchInput}
                                             />
                                         </div>
 
-                                        <div className="relative">
+                                        <div className={styles.inputWrapper}>
                                             <Filter
-                                                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                                                className={styles.inputIcon}
                                                 size={16}
                                             />
                                             <input
@@ -246,7 +242,7 @@ const PostsManagement = () => {
                                                 placeholder="Tags"
                                                 value={searchTags}
                                                 onChange={(e) => setSearchTags(e.target.value)}
-                                                className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:outline-none  focus:ring-transparent"
+                                                className={styles.searchInput}
                                             />
                                         </div>
                                     </div>
@@ -256,70 +252,52 @@ const PostsManagement = () => {
 
                         {/* Loading State */}
                         {loading && (
-                            <div className="p-6 text-center">
-                                <div className="text-gray-500">Loading posts...</div>
+                            <div className={styles.loadingContainer}>
+                                <div className={styles.loadingText}>Loading posts...</div>
                             </div>
                         )}
 
                         {/* Table */}
                         {!loading && (
-                            <div className="overflow-x-auto">
-                                <table className="w-full">
-                                    <thead className="bg-gray-200">
+                            <div className={styles.tableContainer}>
+                                <table className={styles.table}>
+                                    <thead className={styles.tableHeader}>
                                     <tr>
-                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            ID
-                                        </th>
-                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Title
-                                        </th>
-                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Description
-                                        </th>
-                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Tags
-                                        </th>
-                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Actions
-                                        </th>
+                                        <th className={styles.tableHeaderCell}>ID</th>
+                                        <th className={styles.tableHeaderCell}>Title</th>
+                                        <th className={styles.tableHeaderCell}>Description</th>
+                                        <th className={styles.tableHeaderCell}>Tags</th>
+                                        <th className={styles.tableHeaderCell}>Actions</th>
                                     </tr>
                                     </thead>
-                                    <tbody className="bg-gray-300 divide-y divide-gray-200">
+                                    <tbody className={styles.tableBody}>
                                     {currentPosts.length === 0 ? (
                                         <tr>
-                                            <td colSpan={5} className="px-6 py-4 text-center text-gray-500">
+                                            <td colSpan={5} className={styles.noPostsCell}>
                                                 No posts found
                                             </td>
                                         </tr>
                                     ) : (
                                         currentPosts.map((post, index) => (
-                                            <tr key={`post-${post.id}-${index}`} className="hover:bg-gray-50">
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    {post.id}
-                                                </td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    {post.title}
-                                                </td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    {post.description}
-                                                </td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    {formatTags(post.tags)}
-                                                </td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    <div className="flex gap-6">
+                                            <tr key={`post-${post.id}-${index}`} className={styles.tableRow}>
+                                                <td className={styles.tableCell}>{post.id}</td>
+                                                <td className={styles.tableCell}>{post.title}</td>
+                                                <td className={styles.tableCell}>{post.description}</td>
+                                                <td className={styles.tableCell}>{formatTags(post.tags)}</td>
+                                                <td className={styles.tableCell}>
+                                                    <div className={styles.actionsContainer}>
                                                         <button
                                                             onClick={() => {
                                                                 setEditingPost(post);
                                                                 setShowEditModal(true);
                                                             }}
-                                                            className="text-blue-600 hover:text-blue-800 cursor-pointer"
+                                                            className={styles.editButton}
                                                         >
                                                             <Edit3 size={16} />
                                                         </button>
                                                         <button
                                                             onClick={() => handleDeletePost(post.id)}
-                                                            className="text-red-600 hover:text-red-800 cursor-pointer"
+                                                            className={styles.deleteButton}
                                                         >
                                                             <Trash2 size={16} />
                                                         </button>
@@ -335,38 +313,38 @@ const PostsManagement = () => {
 
                         {/* Pagination */}
                         {!loading && filteredPosts.length > 0 && (
-                            <div className="px-6 py-4 border-t border-gray-200">
-                                <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                            <div className={styles.paginationContainer}>
+                                <div className={styles.paginationWrapper}>
                                     {/* Pagination Info */}
-                                    <div className="text-sm text-gray-700">
+                                    <div className={styles.paginationInfo}>
                                         Showing {indexOfFirstPost + 1} to{" "}
                                         {Math.min(indexOfLastPost, filteredPosts.length)} of{" "}
                                         {filteredPosts.length} entries
                                     </div>
 
                                     {/* Pagination Controls */}
-                                    <div className="flex items-center gap-2">
+                                    <div className={styles.paginationControls}>
                                         <button
                                             onClick={() =>
                                                 setCurrentPage((prev) => Math.max(prev - 1, 1))
                                             }
                                             disabled={currentPage === 1}
-                                            className="px-3 py-1 text-sm bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                            className={styles.paginationButton}
                                         >
                                             Previous
                                         </button>
 
                                         {/* Page Numbers */}
-                                        <div className="flex gap-1">
+                                        <div className={styles.pageNumbers}>
                                             {Array.from({ length: totalPages }, (_, i) => i + 1).map(
                                                 (pageNum) => (
                                                     <button
                                                         key={pageNum}
                                                         onClick={() => setCurrentPage(pageNum)}
-                                                        className={`px-3 py-1 text-sm rounded transition-colors ${
+                                                        className={`${styles.pageButton} ${
                                                             currentPage === pageNum
-                                                                ? "bg-purple-500 text-white"
-                                                                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                                                                ? styles.pageButtonActive
+                                                                : ""
                                                         }`}
                                                     >
                                                         {pageNum}
@@ -380,7 +358,7 @@ const PostsManagement = () => {
                                                 setCurrentPage((prev) => Math.min(prev + 1, totalPages))
                                             }
                                             disabled={currentPage === totalPages}
-                                            className="px-3 py-1 text-sm bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                            className={styles.paginationButton}
                                         >
                                             Next
                                         </button>
@@ -448,66 +426,60 @@ const PostModal = ({ title, post, onClose, onSubmit }: PostModalProps) => {
     };
 
     return (
-        <div className="fixed inset-0 shadow-xl rounded-4xl bg-opacity-50 flex items-center justify-center p-4 z-50">
-            <div className="bg-white rounded-lg max-w-md w-full p-6">
-                <h2 className="text-xl font-bold mb-4">{title}</h2>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
-                            Title
-                        </label>
+        <div className={styles.modalOverlay}>
+            <div className={styles.modalContent}>
+                <h2 className={styles.modalTitle}>{title}</h2>
+                <form onSubmit={handleSubmit} className={styles.modalForm}>
+                    <div className={styles.formGroup}>
+                        <label className={styles.formLabel}>Title</label>
                         <input
                             type="text"
                             value={formData.title}
                             onChange={(e) =>
                                 setFormData({ ...formData, title: e.target.value })
                             }
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-transparent focus:outline-none"
+                            className={styles.formInput}
                             required
                         />
                     </div>
 
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
-                            Description
-                        </label>
+                    <div className={styles.formGroup}>
+                        <label className={styles.formLabel}>Description</label>
                         <textarea
                             value={formData.description}
                             onChange={(e) =>
                                 setFormData({ ...formData, description: e.target.value })
                             }
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-transparent focus:outline-none"
+                            className={styles.formTextarea}
                             rows={3}
                             required
                         />
                     </div>
 
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
-                            Tags
-                        </label>
+                    <div className={styles.formGroup}>
+                        <label className={styles.formLabel}>Tags</label>
                         <input
                             type="text"
                             value={formData.tags}
                             onChange={(e) =>
                                 setFormData({ ...formData, tags: e.target.value })
                             }
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-transparent focus:outline-none"
+                            className={styles.formInput}
                             placeholder="HTML, CSS, JavaScript"
                             required
                         />
                     </div>
-                    <div className="flex gap-4 justify-end">
+                    <div className={styles.modalActions}>
                         <button
                             type="button"
                             onClick={onClose}
-                            className="px-4 py-2 text-gray-700 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors"
+                            className={styles.cancelButton}
                         >
                             Cancel
                         </button>
                         <button
                             type="submit"
-                            className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary transition-colors"
+                            className={styles.submitButton}
                         >
                             {post ? "Update" : "Create"}
                         </button>

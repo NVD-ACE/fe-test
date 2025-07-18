@@ -1,0 +1,186 @@
+/*!* TestimonialsSection.module.css *!*/
+
+/*.testimonialsSection {*/
+/*    padding: 5rem 0;*/
+/*    border-radius: 36px;*/
+/*    background-color: var(--primary-color, #8b5cf6);*/
+/*    color: white;*/
+/*    position: relative;*/
+/*    overflow: hidden;*/
+/*    border-bottom: 1px solid rgba(255, 255, 255, 0.1);*/
+/*}*/
+
+/*.container {*/
+/*    max-width: 1280px;*/
+/*    margin: 0 auto;*/
+/*    padding: 0 1.5rem;*/
+/*    position: relative;*/
+/*    z-index: 10;*/
+/*}*/
+
+/*.title {*/
+/*    font-size: 3rem;*/
+/*    font-weight: 700;*/
+/*    margin-bottom: 5rem;*/
+/*    padding-left: 4.5rem;*/
+/*    text-align: center;*/
+/*}*/
+
+/*@media (min-width: 1024px) {*/
+/*    .title {*/
+/*        text-align: left;*/
+/*    }*/
+/*}*/
+
+/*.sliderContainer {*/
+/*    position: relative;*/
+/*}*/
+
+/*.testimonialCard {*/
+/*    background-color: white;*/
+/*    border-radius: 1.5rem;*/
+/*    padding: 3rem;*/
+/*    color: var(--text-gray, #6b7280);*/
+/*    max-width: 80rem;*/
+/*    margin: 0 auto;*/
+/*    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);*/
+/*    height: 360px;*/
+/*}*/
+
+/*@media (min-width: 1024px) {*/
+/*    .testimonialCard {*/
+/*        height: 360px;*/
+/*    }*/
+/*}*/
+
+/*.cardContent {*/
+/*    display: flex;*/
+/*    align-items: flex-start;*/
+/*    gap: 2rem;*/
+/*}*/
+
+/*.avatar {*/
+/*    width: 5rem;*/
+/*    height: 5rem;*/
+/*    border-radius: 50%;*/
+/*    object-fit: cover;*/
+/*    flex-shrink: 0;*/
+/*    ring: 4px solid #f3f4f6;*/
+/*    box-shadow: 0 0 0 4px #f3f4f6;*/
+/*}*/
+
+/*.textContent {*/
+/*    flex: 1;*/
+/*    text-align: left;*/
+/*}*/
+
+/*.name {*/
+/*    font-size: 1.5rem;*/
+/*    font-weight: 700;*/
+/*    margin-bottom: 0.5rem;*/
+/*    color: var(--text-gray, #6b7280);*/
+/*}*/
+
+/*.email {*/
+/*    color: var(--text-family, #4b5563);*/
+/*    margin-bottom: 1.5rem;*/
+/*    font-weight: 500;*/
+/*}*/
+
+/*.description {*/
+/*    color: var(--text-gray, #6b7280);*/
+/*    line-height: 1.625;*/
+/*    font-size: 1.125rem;*/
+/*}*/
+
+/*.navButton {*/
+/*    position: absolute;*/
+/*    left: 0;*/
+/*    top: 50%;*/
+/*    transform: translateY(-50%);*/
+/*    background-color: rgba(255, 255, 255, 0.1);*/
+/*    border: 1px solid rgba(255, 255, 255, 0.2);*/
+/*    border-radius: 50%;*/
+/*    padding: 1rem;*/
+/*    cursor: pointer;*/
+/*    transition: all 0.3s;*/
+/*    backdrop-filter: blur(4px);*/
+/*    color: white;*/
+/*}*/
+
+/*.navButton:hover {*/
+/*    background-color: rgba(255, 255, 255, 0.2);*/
+/*}*/
+
+/*.navButtonRight {*/
+/*    left: auto;*/
+/*    right: 0;*/
+/*}*/
+
+/*.navIcon {*/
+/*    width: 1.75rem;*/
+/*    height: 1.75rem;*/
+/*}*/
+
+/*.dotsContainer {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    margin-top: 3rem;*/
+/*    gap: 0.75rem;*/
+/*}*/
+
+/*.dot {*/
+/*    width: 1rem;*/
+/*    height: 1rem;*/
+/*    border-radius: 50%;*/
+/*    border: none;*/
+/*    cursor: pointer;*/
+/*    transition: all 0.3s;*/
+/*}*/
+
+/*.dotActive {*/
+/*    background-color: white;*/
+/*    transform: scale(1.1);*/
+/*}*/
+
+/*.dotInactive {*/
+/*    background-color: rgba(255, 255, 255, 0.4);*/
+/*}*/
+
+/*.dotInactive:hover {*/
+/*    background-color: rgba(255, 255, 255, 0.6);*/
+/*}*/
+
+/*!* Empty state styles *!*/
+/*.emptySection {*/
+/*    padding: 6rem 0;*/
+/*    background: linear-gradient(135deg, var(--primary-color, #8b5cf6), var(--primary-color, #8b5cf6));*/
+/*    color: white;*/
+/*}*/
+
+/*.emptyContainer {*/
+/*    max-width: 1280px;*/
+/*    margin: 0 auto;*/
+/*    padding: 0 1.5rem;*/
+/*    text-align: center;*/
+/*}*/
+
+/*.emptyTitle {*/
+/*    font-size: 3rem;*/
+/*    font-weight: 700;*/
+/*    margin-bottom: 5rem;*/
+/*    text-align: left;*/
+/*}*/
+
+/*.emptyCard {*/
+/*    background-color: white;*/
+/*    border-radius: 1.5rem;*/
+/*    padding: 3rem;*/
+/*    max-width: 80rem;*/
+/*    margin: 0 auto;*/
+/*}*/
+
+/*.emptyText {*/
+/*    color: var(--text-primary, #1f2937);*/
+/*    font-size: 1.125rem;*/
+/*}*/
