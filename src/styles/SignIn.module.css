@@ -1,0 +1,52 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px;
+    height: 100vh;
+    font-family: Inter, sans-serif;
+}
+.logo{
+    position: absolute;
+    top: 20px;
+    left: 60px;
+    width: 100px;
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.label {
+    display: block;
+    text-align: left;
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #9C69E2;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #212353;
+}
